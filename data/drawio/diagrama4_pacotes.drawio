@@ -1,0 +1,117 @@
+<mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" value="«sistema»  SistemaAluguelAutos" style="rounded=1;arcSize=2;fillColor=#ffffff;strokeColor=#CCCCCC;strokeWidth=2;fontFamily=Helvetica;fontSize=14;fontStyle=1;fontColor=#333333;align=center;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="10" y="10" width="1080" height="820" as="geometry"/>
+    </mxCell>
+    <mxCell id="3" value="«subsistema»  Apresentação (Web)" style="swimlane;startSize=30;fillColor=#ffffff;strokeColor=#2850A0;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#2850A0;align=left;rounded=1;arcSize=4;horizontal=1;swimlaneLine=1;collapsible=0;" vertex="1" parent="1">
+      <mxGeometry x="50" y="90" width="460" height="210" as="geometry"/>
+    </mxCell>
+    <mxCell id="4" value="PaginasCliente" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="124" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="5" value="Pedidos, consulta, cancelamento" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="144" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="6" value="PaginasAgente" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="168" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="7" value="Análise, aprovação, avaliação" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="188" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="8" value="ConstrutorPaginasDinamico" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="212" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="9" value="GeradorHTML, TemplateEngine, Sessão" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="232" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="10" value="«camada»  Infraestrutura" style="swimlane;startSize=30;fillColor=#ffffff;strokeColor=#505060;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#505060;align=left;rounded=1;arcSize=4;horizontal=1;swimlaneLine=1;collapsible=0;" vertex="1" parent="1">
+      <mxGeometry x="580" y="90" width="460" height="210" as="geometry"/>
+    </mxCell>
+    <mxCell id="11" value="ServidorCentral" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="596" y="124" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="12" value="Servidor principal do sistema" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="596" y="144" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="13" value="Segurança" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="596" y="168" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="14" value="Autenticação, autorização, cripto" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="596" y="188" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="15" value="Comunicação" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="596" y="212" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="16" value="HTTP/HTTPS, TCP/IP, Firewall" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="596" y="232" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="17" value="«subsistema»  Gestão de Pedidos e Contratos" style="swimlane;startSize=30;fillColor=#ffffff;strokeColor=#0A7870;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#0A7870;align=left;rounded=1;arcSize=4;horizontal=1;swimlaneLine=1;collapsible=0;" vertex="1" parent="1">
+      <mxGeometry x="50" y="380" width="460" height="390" as="geometry"/>
+    </mxCell>
+    <mxCell id="18" value="Pedidos" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="414" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="19" value="GerencPedido — ciclo de vida do pedido" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="434" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="20" value="Contratos" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="458" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="GerencContrato — geração e aprovação" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="478" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="22" value="Análise" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="502" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="23" value="AnáliseFinanceira — parecer financeiro" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="522" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="24" value="Automóveis" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="546" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="25" value="CadastroAuto — matrícula, placa, modelo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="566" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="26" value="Usuários e Autenticação" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="66" y="590" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="27" value="Contratante, Agente, Empresa, Banco" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="66" y="610" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="28" value="«camada»  Persistência" style="swimlane;startSize=30;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;align=left;rounded=1;arcSize=4;horizontal=1;swimlaneLine=1;collapsible=0;" vertex="1" parent="1">
+      <mxGeometry x="580" y="380" width="460" height="260" as="geometry"/>
+    </mxCell>
+    <mxCell id="29" value="Repositórios" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="596" y="414" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="30" value="Padrão DAO / JPA para as entidades" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="596" y="434" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="31" value="Entidades" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="596" y="458" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="32" value="Mapeamento ORM do domínio" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="596" y="478" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="33" value="BancoDeDados" style="rounded=1;arcSize=4;fillColor=#F5F5F7;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="596" y="502" width="428" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="34" value="MySQL / PostgreSQL, Pool JDBC" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=10;fontColor=#888888;spacingLeft=4;" vertex="1" parent="1">
+      <mxGeometry x="596" y="522" width="428" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="35" value="«usa»" style="dashed=1;endArrow=open;endFill=0;strokeColor=#2850A0;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#2850A0;edgeStyle=orthogonalEdgeStyle;" edge="1" source="3" target="17" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="36" value="«usa»" style="dashed=1;endArrow=open;endFill=0;strokeColor=#505060;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#505060;edgeStyle=orthogonalEdgeStyle;" edge="1" source="3" target="10" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="37" value="«usa»" style="dashed=1;endArrow=open;endFill=0;strokeColor=#963214;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#963214;edgeStyle=orthogonalEdgeStyle;" edge="1" source="17" target="28" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="38" value="«usa»" style="dashed=1;endArrow=open;endFill=0;strokeColor=#505060;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#505060;edgeStyle=orthogonalEdgeStyle;" edge="1" source="17" target="10" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>

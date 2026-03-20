@@ -1,0 +1,116 @@
+<mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" value="Sistema de Aluguel de Automóveis" style="rounded=1;arcSize=2;fillColor=#ffffff;strokeColor=#CCCCCC;strokeWidth=2;dashed=0;fontFamily=Helvetica;fontSize=13;fontColor=#AAAAAA;align=center;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="170" y="10" width="730" height="730" as="geometry"/>
+    </mxCell>
+    <mxCell id="3" value="Gestão de Pedidos" style="rounded=1;arcSize=2;fillColor=#ffffff;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontColor=#AAAAAA;align=left;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="186" y="40" width="348" height="300" as="geometry"/>
+    </mxCell>
+    <mxCell id="4" value="Construção Web" style="rounded=1;arcSize=2;fillColor=#ffffff;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontColor=#AAAAAA;align=left;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="548" y="40" width="340" height="300" as="geometry"/>
+    </mxCell>
+    <mxCell id="5" value="Contratos e Financeiro" style="rounded=1;arcSize=2;fillColor=#ffffff;strokeColor=#DDDDDD;strokeWidth=1;fontFamily=Helvetica;fontSize=11;fontColor=#AAAAAA;align=left;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="186" y="350" width="702" height="380" as="geometry"/>
+    </mxCell>
+    <mxCell id="6" value="Cliente" style="shape=mxgraph.basic.person;fillColor=#ffffff;strokeColor=#333344;strokeWidth=2;fontFamily=Helvetica;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;labelPosition=center;" vertex="1" parent="1">
+      <mxGeometry x="30" y="200" width="50" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="7" value="Agente
+(empresa/banco)" style="shape=mxgraph.basic.person;fillColor=#ffffff;strokeColor=#333344;strokeWidth=2;fontFamily=Helvetica;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;labelPosition=center;" vertex="1" parent="1">
+      <mxGeometry x="30" y="490" width="50" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="8" value="Banco
+Agente" style="shape=mxgraph.basic.person;fillColor=#ffffff;strokeColor=#333344;strokeWidth=2;fontFamily=Helvetica;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;labelPosition=center;" vertex="1" parent="1">
+      <mxGeometry x="970" y="470" width="50" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="9" value="Cadastrar usuário" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2850A0;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#2850A0;" vertex="1" parent="1">
+      <mxGeometry x="250" y="90" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="10" value="Introduzir pedido" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2850A0;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#2850A0;" vertex="1" parent="1">
+      <mxGeometry x="250" y="150" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="11" value="Modificar pedido" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2850A0;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#2850A0;" vertex="1" parent="1">
+      <mxGeometry x="250" y="210" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="12" value="Cancelar pedido" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2850A0;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#2850A0;" vertex="1" parent="1">
+      <mxGeometry x="250" y="270" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="13" value="Gerar página web" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0A7870;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#0A7870;" vertex="1" parent="1">
+      <mxGeometry x="578" y="90" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="14" value="Consultar pedido" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0A7870;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#0A7870;" vertex="1" parent="1">
+      <mxGeometry x="578" y="150" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="15" value="Autenticar usuário" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0A7870;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#0A7870;" vertex="1" parent="1">
+      <mxGeometry x="578" y="210" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="16" value="Avaliar pedido" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0A7870;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#0A7870;" vertex="1" parent="1">
+      <mxGeometry x="578" y="270" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="17" value="Análise financeira" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;" vertex="1" parent="1">
+      <mxGeometry x="222" y="400" width="210" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="18" value="Gerar contrato" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;" vertex="1" parent="1">
+      <mxGeometry x="490" y="400" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="19" value="Registrar automóvel" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;" vertex="1" parent="1">
+      <mxGeometry x="222" y="470" width="210" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="20" value="Vincular crédito" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;" vertex="1" parent="1">
+      <mxGeometry x="490" y="470" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="Aprovar contrato" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;" vertex="1" parent="1">
+      <mxGeometry x="356" y="560" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="22" value="Análise de crédito" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#963214;strokeWidth=2;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#963214;" vertex="1" parent="1">
+      <mxGeometry x="356" y="640" width="200" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="23" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="6" target="9" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="24" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="6" target="10" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="25" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="6" target="11" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="26" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="6" target="12" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="27" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="7" target="17" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="28" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="7" target="19" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="29" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="7" target="21" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="30" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="7" target="18" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="31" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="8" target="17" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="32" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="8" target="18" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="33" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="8" target="21" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="34" value="" style="endArrow=none;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" source="8" target="22" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="35" value="«include»" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6666BB;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#6666BB;startArrow=none;startFill=0;" edge="1" source="10" target="15" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="36" value="«include»" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6666BB;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#6666BB;startArrow=none;startFill=0;" edge="1" source="9" target="15" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="37" value="«extend»" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#963214;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#963214;startArrow=none;startFill=0;" edge="1" source="21" target="22" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
