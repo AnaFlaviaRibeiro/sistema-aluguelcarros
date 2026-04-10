@@ -14,6 +14,7 @@ import com.aluguelcarros.repository.ContratoCreditoRepository;
 import com.aluguelcarros.repository.ContratoRepository;
 import com.aluguelcarros.repository.PedidoAluguelRepository;
 import com.aluguelcarros.request.ContratoVinculoRequest;
+import com.aluguelcarros.request.CreditoVinculoRequest;
 import com.aluguelcarros.response.PedidoAluguelResponse;
 import jakarta.inject.Singleton;
 import jakarta.transaction.Transactional;
@@ -99,6 +100,53 @@ public class ContratoRegistroService {
         }
 
         pedidoRepository.update(pedido);
+        return pedidoAluguelService.buscarPorId(pedidoId);
+    }
+
+    /**
+     * Quando a locadora (EMPRESA) j\u00e1 registrou contrato PADRAO, o banco agente vincula o cr\u00e9dito.
+     */
+    @Transactional
+    public PedidoAluguelResponse vincularCreditoBancario(
+            Long agenteUsuarioId,
+            Long pedidoId,
+            CreditoVinculoRequest request) {
+        Agente agente = agenteRepository.findById(agenteUsuarioId)
+                .orElseThrow(() -> new RecursoException("Agente n\u00e3o encontrado."));
+        if (agente.getTipoAgente() != TipoAgente.BANCO) {
+            throw new IllegalArgumentException(
+                    "Apenas agentes do tipo BANCO podem vincular contrato de cr\u00e9dito.");
+        }
+        if (request.getValorAprovado() == null
+                || request.getValorAprovado().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Valor aprovado do cr\u00e9dito \u00e9 obrigat\u00f3rio.");
+        }
+        PedidoAluguel pedido = pedidoRepository.findById(pedidoId)
+                .orElseThrow(() -> new RecursoException("Pedido n\u00e3o encontrado."));
+        Contrato contrato = pedido.getContrato();
+        if (contrato == null) {
+            throw new IllegalArgumentException("Este pedido ainda n\u00e3o possui contrato de aluguel registrado.");
+        }
+        if (contrato.getTipoContrato() != TipoContrato.PADRAO) {
+            throw new IllegalArgumentException(
+                    "S\u00f3 \u00e9 poss\u00edvel vincular cr\u00e9dito quando o contrato \u00e9 do tipo PADRAO sem cr\u00e9dito.");
+        }
+        if (contrato.getContratoCredito() != null) {
+            throw new IllegalArgumentException("Este contrato j\u00e1 possui cr\u00e9dito vinculado.");
+        }
+
+        contrato.setTipoContrato(TipoContrato.COM_CREDITO);
+
+        ContratoCredito credito = new ContratoCredito();
+        credito.setContrato(contrato);
+        credito.setBancoAgente(agente);
+        credito.setNumeroCredito(request.getNumeroCredito());
+        credito.setValorAprovado(request.getValorAprovado());
+        credito.setStatusCredito(StatusCredito.APROVADO);
+        contratoCreditoRepository.save(credito);
+        contrato.setContratoCredito(credito);
+
+        contratoRepository.update(contrato);
         return pedidoAluguelService.buscarPorId(pedidoId);
     }
 }

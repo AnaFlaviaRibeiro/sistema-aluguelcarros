@@ -187,7 +187,12 @@ onMounted(() => {
               <td class="small">
                 <template v-if="p.numeroContrato">
                   {{ p.numeroContrato }} ({{ p.tipoContrato }})
-                  <span v-if="p.numeroCredito"> · Crédito {{ p.numeroCredito }}</span>
+                  <span v-if="p.numeroCredito">
+                    · Crédito {{ p.numeroCredito }}
+                    <template v-if="p.nomeBancoConcedenteCredito">
+                      — {{ p.nomeBancoConcedenteCredito }}
+                    </template>
+                  </span>
                 </template>
                 <span v-else class="muted">—</span>
               </td>

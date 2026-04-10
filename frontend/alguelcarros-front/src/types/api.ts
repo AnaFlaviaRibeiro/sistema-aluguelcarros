@@ -102,6 +102,8 @@ export interface PedidoAluguelResponse {
   tipoContrato: string | null
   numeroCredito: string | null
   statusCredito: string | null
+  /** Instituição bancária que concedeu o crédito, quando houver */
+  nomeBancoConcedenteCredito: string | null
 }
 
 export interface ContratoVinculoRequest {
@@ -111,4 +113,10 @@ export interface ContratoVinculoRequest {
   tipoContrato: TipoContrato
   numeroCredito?: string
   valorAprovado?: number
+}
+
+/** Vincular crédito a um contrato PADRAO já registrado pela locadora */
+export interface CreditoVinculoRequest {
+  numeroCredito: string
+  valorAprovado: number
 }

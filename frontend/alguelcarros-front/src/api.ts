@@ -2,6 +2,7 @@ import type {
   AtualizarClienteRequest,
   ClientePerfilResponse,
   ContratoVinculoRequest,
+  CreditoVinculoRequest,
   LoginRequest,
   LoginResponse,
   PedidoAluguelResponse,
@@ -136,6 +137,16 @@ export const api = {
     body: ContratoVinculoRequest,
   ): Promise<PedidoAluguelResponse> {
     return request<PedidoAluguelResponse>(`/agente/pedidos/${pedidoId}/contrato`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+    })
+  },
+
+  agenteVincularCredito(
+    pedidoId: number,
+    body: CreditoVinculoRequest,
+  ): Promise<PedidoAluguelResponse> {
+    return request<PedidoAluguelResponse>(`/agente/pedidos/${pedidoId}/credito`, {
       method: 'POST',
       body: JSON.stringify(body),
     })

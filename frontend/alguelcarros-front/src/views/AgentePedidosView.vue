@@ -17,6 +17,7 @@ const pedidos = ref<PedidoAluguelResponse[]>([])
 const carregando = ref(false)
 
 const contratoPedido = ref<PedidoAluguelResponse | null>(null)
+const creditoPedido = ref<PedidoAluguelResponse | null>(null)
 
 const contratantePedidoId = ref<number | null>(null)
 const contratante = ref<ClientePerfilResponse | null>(null)
@@ -26,6 +27,11 @@ const cf = reactive({
   dataInicio: '',
   dataFim: '',
   tipoContrato: 'PADRAO' as TipoContrato,
+  numeroCredito: '',
+  valorAprovado: '' as string | number,
+})
+
+const cfCredito = reactive({
   numeroCredito: '',
   valorAprovado: '' as string | number,
 })
@@ -74,6 +80,7 @@ async function avaliar(p: PedidoAluguelResponse, ev: Event) {
 }
 
 function abrirContrato(p: PedidoAluguelResponse) {
+  creditoPedido.value = null
   contratoPedido.value = p
   cf.numeroContrato = ''
   const hoje = new Date().toISOString().slice(0, 10)
@@ -103,6 +110,28 @@ async function enviarContrato() {
     await carregar()
   } catch (e) {
     show('err', e instanceof Error ? e.message : 'Falha ao registrar contrato.')
+  }
+}
+
+function abrirVinculoCredito(p: PedidoAluguelResponse) {
+  contratoPedido.value = null
+  creditoPedido.value = p
+  cfCredito.numeroCredito = ''
+  cfCredito.valorAprovado = ''
+}
+
+async function enviarVinculoCredito() {
+  if (!creditoPedido.value) return
+  try {
+    await api.agenteVincularCredito(creditoPedido.value.id, {
+      numeroCredito: String(cfCredito.numeroCredito),
+      valorAprovado: Number(cfCredito.valorAprovado),
+    })
+    show('ok', 'Crédito vinculado ao contrato.')
+    creditoPedido.value = null
+    await carregar()
+  } catch (e) {
+    show('err', e instanceof Error ? e.message : 'Falha ao vincular crédito.')
   }
 }
 
@@ -146,8 +175,9 @@ onMounted(() => {
       <h1>Painel do Agente</h1>
       <p class="page-desc">
         Consulte os dados do contratante (identificação e rendas declaradas) antes de avaliar. Coloque
-        pedidos em análise, aprove ou reprove; após parecer positivo, registre o contrato (com crédito,
-        se for o caso, pelo banco agente).
+        pedidos em análise, aprove ou reprove. Depois: a locadora pode registrar contrato <strong>padrão</strong>;
+        o <strong>banco agente</strong> registra contrato <strong>com crédito</strong> de uma vez ou
+        <strong>vincula o crédito</strong> a um contrato padrão já existente.
       </p>
     </header>
 
@@ -212,8 +242,25 @@ onMounted(() => {
                   </button>
                 </template>
                 <template v-else-if="p.numeroContrato">
-                  <span class="small">{{ p.numeroContrato }}</span>
-                  <span v-if="p.numeroCredito" class="mini muted"><br />Crédito {{ p.numeroCredito }}</span>
+                  <span class="small">{{ p.numeroContrato }} ({{ p.tipoContrato }})</span>
+                  <template v-if="p.numeroCredito">
+                    <span class="mini muted"><br />Crédito {{ p.numeroCredito }}</span>
+                    <span v-if="p.nomeBancoConcedenteCredito" class="mini muted">
+                      <br />Banco: {{ p.nomeBancoConcedenteCredito }}
+                    </span>
+                  </template>
+                  <template
+                    v-else-if="p.tipoContrato === 'PADRAO' && podeCredito"
+                  >
+                    <br />
+                    <button
+                      type="button"
+                      class="btn-link"
+                      @click="abrirVinculoCredito(p)"
+                    >
+                      Vincular crédito
+                    </button>
+                  </template>
                 </template>
                 <span v-else class="muted">—</span>
               </td>
@@ -272,6 +319,37 @@ onMounted(() => {
         </div>
         <p v-else class="muted">Nenhum emprego cadastrado.</p>
       </template>
+    </section>
+
+    <section v-if="creditoPedido" class="panel credito-panel">
+      <h2 class="panel-title">
+        Vincular crédito bancário — pedido #{{ creditoPedido.id }}
+      </h2>
+      <p class="muted small">
+        Contrato {{ creditoPedido.numeroContrato }} (PADRAO). Informe o crédito concedido pelo seu banco.
+      </p>
+      <form class="form-grid" @submit.prevent="enviarVinculoCredito">
+        <label class="field">
+          <span>Número do crédito</span>
+          <input v-model="cfCredito.numeroCredito" required />
+        </label>
+        <label class="field">
+          <span>Valor aprovado (R$)</span>
+          <input
+            v-model.number="cfCredito.valorAprovado"
+            type="number"
+            min="0.01"
+            step="0.01"
+            required
+          />
+        </label>
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" @click="creditoPedido = null">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary">Confirmar vínculo</button>
+        </div>
+      </form>
     </section>
 
     <section v-if="contratoPedido" class="panel contrato-panel">
@@ -346,6 +424,11 @@ onMounted(() => {
 
 .contrato-panel {
   border-color: rgb(37 99 235 / 30%);
+}
+
+.credito-panel {
+  border-color: rgb(180 83 9 / 35%);
+  background: linear-gradient(180deg, rgb(255 251 235 / 60%) 0%, var(--surface) 100%);
 }
 
 .contratante-panel {

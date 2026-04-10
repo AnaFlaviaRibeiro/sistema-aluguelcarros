@@ -2,6 +2,7 @@ package com.aluguelcarros.controller;
 
 import com.aluguelcarros.model.type.StatusPedido;
 import com.aluguelcarros.request.ContratoVinculoRequest;
+import com.aluguelcarros.request.CreditoVinculoRequest;
 import com.aluguelcarros.response.ClientePerfilResponse;
 import com.aluguelcarros.response.PedidoAluguelResponse;
 import com.aluguelcarros.security.AuthPrincipal;
@@ -57,5 +58,13 @@ public class AgenteAreaController {
             Long id,
             @Body @Valid ContratoVinculoRequest body) {
         return contratoRegistroService.registrarContrato(idAgente(request), id, body);
+    }
+
+    @Post("/pedidos/{id}/credito")
+    public PedidoAluguelResponse vincularCredito(
+            HttpRequest<?> request,
+            Long id,
+            @Body @Valid CreditoVinculoRequest body) {
+        return contratoRegistroService.vincularCreditoBancario(idAgente(request), id, body);
     }
 }

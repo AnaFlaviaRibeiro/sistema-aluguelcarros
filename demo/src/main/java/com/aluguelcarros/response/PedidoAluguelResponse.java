@@ -27,6 +27,7 @@ public record PedidoAluguelResponse(
         String numeroContrato,
         String tipoContrato,
         String numeroCredito,
-        String statusCredito
+        String statusCredito,
+        String nomeBancoConcedenteCredito
 ) {
 }

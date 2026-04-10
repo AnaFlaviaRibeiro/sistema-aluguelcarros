@@ -193,6 +193,7 @@ public class PedidoAluguelService {
         String tipoContrato = null;
         String numeroCredito = null;
         String statusCredito = null;
+        String nomeBancoConcedenteCredito = null;
         if (c != null) {
             numeroContrato = c.getNumeroContrato();
             tipoContrato = c.getTipoContrato().name();
@@ -200,6 +201,9 @@ public class PedidoAluguelService {
             if (cc != null) {
                 numeroCredito = cc.getNumeroCredito();
                 statusCredito = cc.getStatusCredito().name();
+                if (cc.getBancoAgente() != null) {
+                    nomeBancoConcedenteCredito = cc.getBancoAgente().getNomeInstituicao();
+                }
             }
         }
         return new PedidoAluguelResponse(
@@ -220,7 +224,8 @@ public class PedidoAluguelService {
                 numeroContrato,
                 tipoContrato,
                 numeroCredito,
-                statusCredito
+                statusCredito,
+                nomeBancoConcedenteCredito
         );
     }
 }
