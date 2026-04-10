@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-soft: #94a3b8;
+  --border: #e2e8f0;
+  --border-input: #cbd5e1;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --shadow-card: 0 1px 3px rgb(15 23 42 / 6%);
+  --shadow-card-hover: 0 8px 24px rgb(15 23 42 / 8%);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+}
