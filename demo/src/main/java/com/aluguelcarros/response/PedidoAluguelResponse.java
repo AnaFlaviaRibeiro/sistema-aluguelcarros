@@ -17,7 +17,16 @@ public record PedidoAluguelResponse(
         Integer prazoMeses,
         Long clienteId,
         String nomeCliente,
+        String matricula,
+        Integer ano,
+        String marca,
         String placaAutomovel,
-        String modeloAutomovel
+        String modeloAutomovel,
+        String proprietarioTipo,
+        String nomeAgenteAvaliador,
+        String numeroContrato,
+        String tipoContrato,
+        String numeroCredito,
+        String statusCredito
 ) {
 }

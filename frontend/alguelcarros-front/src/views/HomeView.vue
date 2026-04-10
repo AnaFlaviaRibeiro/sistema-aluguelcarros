@@ -10,15 +10,16 @@ import heroImg from '../assets/carros.jpeg'
         <p class="eyebrow">Gestão de locação</p>
         <h1>Aluguel de carros com fluxo claro e rápido</h1>
         <p class="lead">
-          Cadastre clientes, abra pedidos de aluguel e acompanhe o status em
-          telas dedicadas — tudo organizado para o dia a dia da operação.
+          O acesso exige cadastro prévio. Clientes gerenciam seus pedidos; agentes (empresas e bancos)
+          avaliam financeiramente e registram contratos — com opção de vínculo a crédito concedido por
+          banco agente.
         </p>
         <div class="cta-row">
-          <RouterLink class="btn btn-primary" to="/clientes">
-            Ver clientes
+          <RouterLink class="btn btn-primary" to="/registro">
+            Cadastrar como cliente
           </RouterLink>
-          <RouterLink class="btn btn-ghost" to="/pedidos">
-            Pedidos de aluguel
+          <RouterLink class="btn btn-ghost" to="/login">
+            Entrar
           </RouterLink>
         </div>
       </div>
@@ -31,20 +32,29 @@ import heroImg from '../assets/carros.jpeg'
     <section class="features">
       <article class="feature-card">
         <span class="feature-icon" aria-hidden="true">◎</span>
-        <h2>Clientes</h2>
-        <p>Cadastro completo e lista atualizada com exclusão segura.</p>
-        <RouterLink to="/clientes" class="feature-link">Abrir tela →</RouterLink>
+        <h2>Cliente</h2>
+        <p>
+          RG, CPF, endereço, profissão e até três empregos com renda. Cria, altera, consulta e cancela
+          pedidos conforme as regras de status.
+        </p>
+        <RouterLink to="/registro" class="feature-link">Criar conta →</RouterLink>
       </article>
       <article class="feature-card">
         <span class="feature-icon" aria-hidden="true">◇</span>
-        <h2>Pedidos</h2>
-        <p>Filtro por cliente, alteração de status e novo pedido em um só lugar.</p>
-        <RouterLink to="/pedidos" class="feature-link">Abrir tela →</RouterLink>
+        <h2>Agente</h2>
+        <p>
+          Coloca pedidos em análise financeira, aprova ou reprova e, após parecer positivo, registra o
+          contrato de aluguel (com ou sem crédito bancário).
+        </p>
+        <RouterLink to="/login" class="feature-link">Acesso agente →</RouterLink>
       </article>
       <article class="feature-card">
         <span class="feature-icon" aria-hidden="true">✓</span>
-        <h2>API local</h2>
-        <p>Integração via proxy Vite com o backend em <code>localhost:8080</code>.</p>
+        <h2>Veículo e propriedade</h2>
+        <p>
+          Matrícula, ano, marca, modelo e placa; proprietário pode ser cliente, empresa ou banco, conforme
+          o tipo de contrato.
+        </p>
       </article>
     </section>
   </div>

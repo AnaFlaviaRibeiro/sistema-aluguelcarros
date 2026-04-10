@@ -11,10 +11,7 @@ import java.math.BigDecimal;
 
 @Serdeable
 @Introspected
-public class PedidoAluguelRequest {
-
-    @NotNull
-    private Long clienteId;
+public class PedidoAtualizacaoClienteRequest {
 
     @NotNull
     private BigDecimal valorMensal;
@@ -41,72 +38,64 @@ public class PedidoAluguelRequest {
     @NotNull
     private TipoProprietario proprietarioTipo;
 
-    public Long getClienteId() {
-        return clienteId;
-    }
-
     public BigDecimal getValorMensal() {
         return valorMensal;
-    }
-
-    public Integer getPrazoMeses() {
-        return prazoMeses;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public Integer getAno() {
-        return ano;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public TipoProprietario getProprietarioTipo() {
-        return proprietarioTipo;
-    }
-
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
     }
 
     public void setValorMensal(BigDecimal valorMensal) {
         this.valorMensal = valorMensal;
     }
 
+    public Integer getPrazoMeses() {
+        return prazoMeses;
+    }
+
     public void setPrazoMeses(Integer prazoMeses) {
         this.prazoMeses = prazoMeses;
+    }
+
+    public String getMatricula() {
+        return matricula;
     }
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
+    public Integer getAno() {
+        return ano;
+    }
+
     public void setAno(Integer ano) {
         this.ano = ano;
+    }
+
+    public String getMarca() {
+        return marca;
     }
 
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+    public String getModelo() {
+        return modelo;
+    }
+
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
+    public String getPlaca() {
+        return placa;
+    }
+
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public TipoProprietario getProprietarioTipo() {
+        return proprietarioTipo;
     }
 
     public void setProprietarioTipo(TipoProprietario proprietarioTipo) {

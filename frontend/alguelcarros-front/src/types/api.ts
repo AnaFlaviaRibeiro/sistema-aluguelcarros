@@ -1,22 +1,4 @@
-export interface ClienteResponse {
-  id: number
-  nome: string
-  email: string
-  rg: string
-  cpf: string
-  endereco: string
-  profissao: string
-}
-
-export interface ClienteRequest {
-  nome: string
-  email: string
-  senha: string
-  rg: string
-  cpf: string
-  endereco: string
-  profissao: string
-}
+export type TipoUsuario = 'CLIENTE' | 'AGENTE'
 
 export type TipoProprietario = 'CLIENTE' | 'EMPRESA' | 'BANCO'
 
@@ -27,8 +9,68 @@ export type StatusPedido =
   | 'REPROVADO'
   | 'CANCELADO'
 
-export interface PedidoAluguelRequest {
-  clienteId: number
+export type TipoContrato = 'PADRAO' | 'COM_CREDITO'
+
+export interface EmpregoRequest {
+  entidadeEmpregadora: string
+  renda: number
+}
+
+export interface RegistroClienteRequest {
+  nome: string
+  email: string
+  senha: string
+  rg: string
+  cpf: string
+  endereco: string
+  profissao: string
+  empregos: EmpregoRequest[]
+}
+
+export interface AtualizarClienteRequest {
+  nome: string
+  email: string
+  senha: string
+  rg: string
+  cpf: string
+  endereco: string
+  profissao: string
+  empregos: EmpregoRequest[]
+}
+
+export interface EmpregoResponse {
+  id: number
+  entidadeEmpregadora: string
+  renda: number
+}
+
+export interface ClientePerfilResponse {
+  id: number
+  nome: string
+  email: string
+  rg: string
+  cpf: string
+  endereco: string
+  profissao: string
+  empregos: EmpregoResponse[]
+}
+
+export interface LoginRequest {
+  email: string
+  senha: string
+}
+
+export type TipoAgente = 'EMPRESA' | 'BANCO'
+
+export interface LoginResponse {
+  token: string
+  tipo: TipoUsuario
+  userId: number
+  nome: string
+  tipoAgente: TipoAgente | null
+}
+
+export interface PedidoCriacaoClienteRequest {
   valorMensal: number
   prazoMeses: number
   matricula: string
@@ -39,14 +81,34 @@ export interface PedidoAluguelRequest {
   proprietarioTipo: TipoProprietario
 }
 
+export type PedidoAtualizacaoClienteRequest = PedidoCriacaoClienteRequest
+
 export interface PedidoAluguelResponse {
   id: number
   dataPedido: string
   status: StatusPedido
-  valorMensal: string
+  valorMensal: number
   prazoMeses: number
   clienteId: number
   nomeCliente: string
+  matricula: string
+  ano: number
+  marca: string
   placaAutomovel: string
   modeloAutomovel: string
+  proprietarioTipo: string
+  nomeAgenteAvaliador: string | null
+  numeroContrato: string | null
+  tipoContrato: string | null
+  numeroCredito: string | null
+  statusCredito: string | null
+}
+
+export interface ContratoVinculoRequest {
+  numeroContrato: string
+  dataInicio: string
+  dataFim: string
+  tipoContrato: TipoContrato
+  numeroCredito?: string
+  valorAprovado?: number
 }

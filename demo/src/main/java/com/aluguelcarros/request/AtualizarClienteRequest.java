@@ -2,13 +2,17 @@ package com.aluguelcarros.request;
 
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.serde.annotation.Serdeable;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Serdeable
 @Introspected
-public class ClienteRequest {
+public class AtualizarClienteRequest {
 
     @NotBlank
     @Size(max = 120)
@@ -19,7 +23,6 @@ public class ClienteRequest {
     @Size(max = 120)
     private String email;
 
-    @NotBlank
     @Size(max = 120)
     private String senha;
 
@@ -38,6 +41,10 @@ public class ClienteRequest {
     @NotBlank
     @Size(max = 100)
     private String profissao;
+
+    @Valid
+    @Size(max = 3, message = "No m\u00e1ximo 3 entidades empregadoras.")
+    private List<EmpregoRequest> empregos = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -67,6 +74,10 @@ public class ClienteRequest {
         return profissao;
     }
 
+    public List<EmpregoRequest> getEmpregos() {
+        return empregos;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -93,5 +104,9 @@ public class ClienteRequest {
 
     public void setProfissao(String profissao) {
         this.profissao = profissao;
+    }
+
+    public void setEmpregos(List<EmpregoRequest> empregos) {
+        this.empregos = empregos != null ? empregos : new ArrayList<>();
     }
 }

@@ -25,6 +25,11 @@ public class ApiExceptionHandler implements ExceptionHandler<RuntimeException, H
             return HttpResponse.badRequest(new JsonError(exception.getMessage()));
         }
 
+        if (exception instanceof AcessoNegadoException) {
+            return HttpResponse.status(io.micronaut.http.HttpStatus.FORBIDDEN)
+                    .body(new JsonError(exception.getMessage()));
+        }
+
         LOG.error("Erro não tratado em {}", request.getPath(), exception);
         return HttpResponse.serverError(new JsonError("Erro interno no servidor."));
     }

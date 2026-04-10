@@ -1,8 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { useRentalsApp } from './composables/useRentalsApp'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import { useAuth } from './composables/useAuth'
+import { useFeedback } from './composables/useFeedback'
 
-const { feedback, loading } = useRentalsApp()
+const auth = useAuth()
+const router = useRouter()
+const { feedback } = useFeedback()
+
+function sair() {
+  auth.clearAuth()
+  void router.push({ name: 'login' })
+}
 </script>
 
 <template>
@@ -15,8 +23,18 @@ const { feedback, loading } = useRentalsApp()
         </RouterLink>
         <nav class="nav" aria-label="Principal">
           <RouterLink to="/" class="nav-link">Início</RouterLink>
-          <RouterLink to="/clientes" class="nav-link">Clientes</RouterLink>
-          <RouterLink to="/pedidos" class="nav-link">Pedidos</RouterLink>
+          <template v-if="auth.isCliente.value">
+            <RouterLink to="/cliente/pedidos" class="nav-link">Meus pedidos</RouterLink>
+            <RouterLink to="/cliente/perfil" class="nav-link">Perfil</RouterLink>
+          </template>
+          <template v-else-if="auth.isAgente.value">
+            <RouterLink to="/agente/pedidos" class="nav-link">Painel Agente</RouterLink>
+          </template>
+          <template v-if="!auth.isAuthenticated.value">
+            <RouterLink to="/login" class="nav-link">Entrar</RouterLink>
+            <RouterLink to="/registro" class="nav-link nav-cta">Cadastro</RouterLink>
+          </template>
+          <button v-else type="button" class="nav-out" @click="sair">Sair</button>
         </nav>
       </div>
     </header>
@@ -24,7 +42,6 @@ const { feedback, loading } = useRentalsApp()
     <p v-if="feedback" :class="['toast', feedback.kind]" role="status">
       {{ feedback.text }}
     </p>
-    <div v-if="loading" class="loading-bar" aria-hidden="true" />
 
     <main class="main">
       <RouterView v-slot="{ Component }">
@@ -125,6 +142,28 @@ const { feedback, loading } = useRentalsApp()
   background: rgb(37 99 235 / 10%);
 }
 
+.nav-cta {
+  background: rgb(37 99 235 / 12%);
+  color: var(--accent);
+}
+
+.nav-out {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.nav-out:hover {
+  color: var(--text);
+  border-color: var(--text-soft);
+}
+
 .toast {
   max-width: 1100px;
   margin: 0.75rem auto 0;
@@ -146,40 +185,6 @@ const { feedback, loading } = useRentalsApp()
   background: #fef2f2;
   color: #991b1b;
   border: 1px solid #fca5a5;
-}
-
-.loading-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  z-index: 50;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent),
-    transparent
-  );
-  animation: shimmer 1s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    opacity: 0.35;
-    transform: scaleX(0.3);
-    transform-origin: left;
-  }
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
-    transform-origin: center;
-  }
-  100% {
-    opacity: 0.35;
-    transform: scaleX(0.3);
-    transform-origin: right;
-  }
 }
 
 .main {
