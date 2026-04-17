@@ -19,7 +19,7 @@ function sair() {
       <div class="topbar-inner">
         <RouterLink to="/" class="brand">
           <span class="brand-mark" aria-hidden="true" />
-          <span class="brand-text">Aluguel Carros</span>
+          <span class="brand-text">MiflaCars</span>
         </RouterLink>
         <nav class="nav" aria-label="Principal">
           <RouterLink to="/" class="nav-link">Início</RouterLink>
@@ -51,9 +51,6 @@ function sair() {
       </RouterView>
     </main>
 
-    <footer class="footer">
-      <p>Frontend Vue · API via proxy <code>/api</code></p>
-    </footer>
   </div>
 </template>
 
@@ -62,7 +59,7 @@ function sair() {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'Racing Sans One', system-ui, sans-serif;
   color: var(--text);
   background:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgb(99 102 241 / 12%), transparent),

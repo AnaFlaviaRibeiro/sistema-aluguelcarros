@@ -3,8 +3,11 @@ import { onMounted, reactive, ref } from 'vue'
 import { api } from '../api'
 import { useFeedback } from '../composables/useFeedback'
 import type { PedidoAluguelResponse, StatusPedido, TipoProprietario } from '../types/api'
+import { CATALOGO_VEICULOS, veiculoCatalogoPorPlaca } from '../data/catalogoVeiculos'
+import type { VeiculoCatalogo } from '../data/catalogoVeiculos'
 
 const { show } = useFeedback()
+const catalogoIdSelecionado = ref<string | null>(null)
 
 const pedidos = ref<PedidoAluguelResponse[]>([])
 const carregando = ref(false)
@@ -22,6 +25,20 @@ const novo = reactive({
 })
 
 const edicao = reactive({ ...novo })
+
+function aplicarDoCatalogo(v: VeiculoCatalogo) {
+  catalogoIdSelecionado.value = v.id
+  novo.matricula = v.matricula
+  novo.ano = v.ano
+  novo.marca = v.marca
+  novo.modelo = v.modelo
+  novo.placa = v.placa
+  novo.valorMensal = v.valorMensalSugerido
+}
+
+function thumbPedido(p: PedidoAluguelResponse): string | undefined {
+  return veiculoCatalogoPorPlaca(p.placaAutomovel)?.imagemUrl
+}
 
 function pillClass(s: StatusPedido) {
   const m: Record<StatusPedido, string> = {
@@ -49,6 +66,7 @@ async function criar() {
   try {
     await api.clienteCriarPedido({ ...novo })
     show('ok', 'Pedido criado.')
+    catalogoIdSelecionado.value = null
     Object.assign(novo, {
       valorMensal: 1500,
       prazoMeses: 12,
@@ -116,6 +134,27 @@ onMounted(() => {
 
     <section class="panel">
       <h2 class="panel-title">Novo pedido</h2>
+      <p class="catalogo-lead">
+        Escolha um carro da frota de demonstração para preencher marca, modelo, ano, matrícula e placa
+        automaticamente (pode ajustar os valores antes de enviar).
+      </p>
+      <div class="catalogo-grid" role="list">
+        <button
+          v-for="v in CATALOGO_VEICULOS"
+          :key="v.id"
+          type="button"
+          class="cat-card"
+          :class="{ 'cat-card--on': catalogoIdSelecionado === v.id }"
+          role="listitem"
+          @click="aplicarDoCatalogo(v)"
+        >
+          <img :src="v.imagemUrl" :alt="`${v.marca} ${v.modelo}`" class="cat-img" loading="lazy" />
+          <span class="cat-meta">
+            <span class="cat-titulo">{{ v.marca }} {{ v.modelo }}</span>
+            <span class="cat-sub">{{ v.ano }} · {{ v.placa }} · a partir de R$ {{ v.valorMensalSugerido }}/mês</span>
+          </span>
+        </button>
+      </div>
       <form class="form-grid" @submit.prevent="criar">
         <label class="field">
           <span>Valor mensal</span>
@@ -183,7 +222,19 @@ onMounted(() => {
                 <span class="pill" :class="pillClass(p.status)">{{ p.status }}</span>
               </td>
               <td>{{ p.valorMensal }}</td>
-              <td>{{ p.placaAutomovel }} — {{ p.modeloAutomovel }}</td>
+              <td>
+                <div class="veiculo-cell">
+                  <img
+                    v-if="thumbPedido(p)"
+                    :src="thumbPedido(p)"
+                    alt=""
+                    class="thumb"
+                    width="44"
+                    height="32"
+                  />
+                  <span>{{ p.placaAutomovel }} — {{ p.modeloAutomovel }}</span>
+                </div>
+              </td>
               <td class="small">
                 <template v-if="p.numeroContrato">
                   {{ p.numeroContrato }} ({{ p.tipoContrato }})
@@ -303,6 +354,85 @@ onMounted(() => {
   margin: 0 0 1rem;
   font-size: 1.05rem;
   font-weight: 600;
+}
+
+.catalogo-lead {
+  margin: -0.35rem 0 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-muted);
+  cursor: pointer;
+  font: inherit;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.cat-card:hover {
+  border-color: rgb(37 99 235 / 35%);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.cat-card--on {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgb(37 99 235 / 18%);
+}
+
+.cat-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.cat-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.55rem 0.65rem 0.65rem;
+}
+
+.cat-titulo {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cat-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.veiculo-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.thumb {
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .form-grid {

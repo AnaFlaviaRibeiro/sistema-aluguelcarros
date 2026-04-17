@@ -22,6 +22,7 @@
 body {
   margin: 0;
   background: var(--bg);
+  font-family: 'Racing Sans One', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
